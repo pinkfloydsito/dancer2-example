@@ -34,3 +34,6 @@ inc/
 /*.zip
 
 /local
+
+.DS_Store
+
