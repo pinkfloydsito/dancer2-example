@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./lib:/app/lib
+      - ./:/app/
       - ./t:/app/t
     ports:
       - 5000:3000
