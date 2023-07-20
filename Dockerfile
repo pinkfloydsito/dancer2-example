@@ -14,6 +14,8 @@ COPY . /app
 
 COPY cpanfile cpanfile.snapshot /app/
 
+VOLUME /app/local
+
 RUN carton install
 
 ENV PORT 3000
