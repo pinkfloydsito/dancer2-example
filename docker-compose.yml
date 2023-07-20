@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    container_name: 'dancer2-sample'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./lib:/app/lib
+      - ./t:/app/t
+    ports:
+      - 5000:3000
