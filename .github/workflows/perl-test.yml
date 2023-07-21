@@ -22,11 +22,28 @@ jobs:
       with:
         perl-version: '5.38'
 
+    - name: Cache Perl and Carton dependencies
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.cpanm
+          ./local
+        key: ${{ runner.os }}-perl-carton-${{ hashFiles('cpanfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-perl-carton-
+
     - name: Install dependencies
       run: cpanm --quiet --installdeps .
 
-    - name: Carton install additional dependencies
-      run: carton
+    - name: Install Carton dependencies
+      run: carton install --cached
 
     - name: Run tests
       run: prove -lvr t
+
+    - name: Save Perl and Carton dependencies cache
+      if: steps.cache.outputs.cache-hit == 'false'
+      run: |
+        cpanm --quiet --snapshot
+        carton bundle
