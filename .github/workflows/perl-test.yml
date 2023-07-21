@@ -1,0 +1,32 @@
+name: Perl Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Perl
+      uses: shogo82148/actions-setup-perl@v1
+      with:
+        perl-version: '5.38'
+
+    - name: Install dependencies
+      run: cpanm --quiet --installdeps .
+
+    - name: Carton install additional dependencies
+      run: carton
+
+    - name: Run tests
+      run: prove -lvr t
