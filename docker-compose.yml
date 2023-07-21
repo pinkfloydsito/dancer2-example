@@ -10,3 +10,12 @@ services:
       - ./t:/app/t
     ports:
       - 5000:3000
+
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault_dev
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root-token" 
+    restart: always

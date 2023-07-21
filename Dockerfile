@@ -3,7 +3,7 @@ FROM perl:5.38
 RUN cpanm Carton
 RUN cpanm JSON::MaybeXS
 RUN cpanm HTML::Entities
-RUN cpanm Plack Test::More
+RUN cpanm Plack
 RUN cpanm Module::Starter
 RUN cpanm WebService::HashiCorp::Vault
 
@@ -16,7 +16,7 @@ COPY cpanfile cpanfile.snapshot /app/
 
 VOLUME /app/local
 
-RUN carton install
+ONBUILD RUN carton install
 
 ENV PORT 3000
 

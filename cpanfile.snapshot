@@ -258,6 +258,46 @@ DISTRIBUTIONS
       perl 5.012
       strict 0
       warnings 0
+  Data-Printer-1.001000
+    pathname: G/GA/GARU/Data-Printer-1.001000.tar.gz
+    provides:
+      DDP 1.001000
+      Data::Printer 1.001000
+      Data::Printer::Common undef
+      Data::Printer::Config undef
+      Data::Printer::Filter undef
+      Data::Printer::Filter::ARRAY undef
+      Data::Printer::Filter::CODE undef
+      Data::Printer::Filter::ContentType undef
+      Data::Printer::Filter::DB undef
+      Data::Printer::Filter::DateTime undef
+      Data::Printer::Filter::Digest undef
+      Data::Printer::Filter::FORMAT undef
+      Data::Printer::Filter::GLOB undef
+      Data::Printer::Filter::GenericClass undef
+      Data::Printer::Filter::HASH undef
+      Data::Printer::Filter::REF undef
+      Data::Printer::Filter::Regexp undef
+      Data::Printer::Filter::SCALAR undef
+      Data::Printer::Filter::VSTRING undef
+      Data::Printer::Filter::Web undef
+      Data::Printer::Object undef
+      Data::Printer::Profile undef
+      Data::Printer::Profile::Dumper undef
+      Data::Printer::Profile::JSON undef
+      Data::Printer::Theme undef
+      Data::Printer::Theme::Classic undef
+      Data::Printer::Theme::Material undef
+      Data::Printer::Theme::Monokai undef
+      Data::Printer::Theme::Solarized undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Fcntl 0
+      File::Spec 0
+      File::Temp 0
+      Scalar::Util 0
+      Test::More 0
+      version 0.77
   Devel-StackTrace-2.04
     pathname: D/DR/DROLSKY/Devel-StackTrace-2.04.tar.gz
     provides:
@@ -960,6 +1000,15 @@ DISTRIBUTIONS
     requirements:
       Exporter 5.57
       perl 5.006
+  SUPER-1.20190531
+    pathname: C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
+    provides:
+      SUPER 1.20190531
+    requirements:
+      Scalar::Util 1.20
+      Sub::Identify 0.03
+      Test::Simple 0.61
+      perl v5.6.2
   Safe-Isa-1.000010
     pathname: E/ET/ETHER/Safe-Isa-1.000010.tar.gz
     provides:
@@ -993,6 +1042,13 @@ DISTRIBUTIONS
       perl 5.008000
       strict 0
       warnings 0
+  Sub-Identify-0.14
+    pathname: R/RG/RGARCIA/Sub-Identify-0.14.tar.gz
+    provides:
+      Sub::Identify 0.14
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   Sub-Install-0.929
     pathname: R/RJ/RJBS/Sub-Install-0.929.tar.gz
     provides:
@@ -1180,6 +1236,16 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
+  Test-MockModule-v0.177.0
+    pathname: G/GF/GFRANKS/Test-MockModule-v0.177.0.tar.gz
+    provides:
+      Test::MockModule v0.177.0
+    requirements:
+      Carp 0
+      Module::Build 0.38
+      SUPER 1.20
+      Scalar::Util 0
+      perl 5.006
   Test-Most-0.38
     pathname: O/OV/OVID/Test-Most-0.38.tar.gz
     provides:
