@@ -3,3 +3,7 @@ requires "Test::More";
 requires "Test::MockModule";
 requires "Data::Printer";
 requires "Data::Dumper";
+requires "Module::Starter";
+requires "WebService::HashiCorp::Vault";
+requires "JSON::MaybeXS";
+requires "HTML::Entities";
