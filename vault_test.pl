@@ -80,13 +80,16 @@ if (!$auths->{data}{"goat/"}) {
 }
 
 
-my $cubby = $vault->secret( backend => 'cubbyhole', path => 'cubbyhole' );
+my $cubby = $vault->secret( 
+    backend => 'kvv2', 
+    mount   => 'kv',
+    path => 'tucows-billing' );
 
-$cubby->data({ hello => 'there' });
+$cubby->data({ STRIPE_KEY => 'new_value' });
 
 p $cubby->data();
 
-warn "deleted";
+# warn "deleted";
 # $cubby->delete();
 
 # p $cubby;
