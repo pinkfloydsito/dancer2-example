@@ -21,6 +21,8 @@ sub login {
         token => $token,
         version => "V1"
         );
+
+    $self->{vault_api} = $vault_api;
 }
 
 1;
