@@ -16,8 +16,11 @@ sub new {
 sub login {
     my ($self, $vault_url, $token) = @_;
 
-    my $vault_api = WebService::HashiCorp::Vault->new( { endpoint => $vault_url } );
-    $vault_api->auth_token($token);
+    my $vault_api = WebService::HashiCorp::Vault->new(
+        base_url => $vault_url,
+        token => $token,
+        version => "V1"
+        );
 }
 
 1;
