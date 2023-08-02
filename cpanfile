@@ -1,6 +1,8 @@
 requires "Dancer2";
 requires "Test::More";
 requires "Test::MockModule";
+requires "Test::MockObject";
+requires "Test::More::Behaviour";
 requires "Data::Printer";
 requires "Data::Dumper";
 requires "Module::Starter";

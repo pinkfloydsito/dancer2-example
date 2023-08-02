@@ -16,6 +16,10 @@ sub new {
 sub login {
     my ($self, $vault_url, $token) = @_;
 
+    if (defined $self->{vault_api}) {
+        return;
+    }
+
     my $vault_api = WebService::HashiCorp::Vault->new(
         base_url => $vault_url,
         token => $token,
@@ -25,18 +29,25 @@ sub login {
     $self->{vault_api} = $vault_api;
 }
 
-sub getSecrets {
+sub secrets {
     my ($self, $params) = @_;
 
-    my $vault = $self->{vault_api}
     my $backend = $params->{backend};
     my $mount = $params->{mount};
     my $path = $params->{path};
 
-    my $list = $vault->secret( backend => $backend, mount => $mount, path => $path );
+    my $list = $self->{vault_api}->secret( backend => $backend, mount => $mount, path => $path );
+
     my $data = $list->data();
     
     return $data;
+}
+
+sub populate_env_vars {
+    my ($self, $hash) = @_;
+    while (my ($key, $value) = each %$hash) {
+        $ENV{$key} = $value;
+    }
 }
 
 1;
