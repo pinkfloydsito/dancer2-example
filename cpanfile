@@ -9,3 +9,4 @@ requires "Module::Starter";
 requires "WebService::HashiCorp::Vault";
 requires "JSON::MaybeXS";
 requires "HTML::Entities";
+requires "Dancer2::Plugin::DBIC";

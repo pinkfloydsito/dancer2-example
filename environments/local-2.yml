@@ -1,0 +1,17 @@
+logger: "console"
+
+log: "core"
+
+warnings: 1
+
+show_errors: 0
+
+log: core
+
+plugins:
+  DBIC:
+    billing:
+      schema_class: Local2::Schema
+      dsn:  "dbi:Pg:dbname=local_2;host=db;port=5432"
+      user: "local-2-db"
+      password: "local2-test-password"
