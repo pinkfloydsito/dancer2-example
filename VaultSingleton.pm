@@ -22,8 +22,7 @@ sub login {
 
     my $vault_api = WebService::HashiCorp::Vault->new(
         base_url => $vault_url,
-        token => $token,
-        version => "V1"
+        token => $token
         );
 
     $self->{vault_api} = $vault_api;
