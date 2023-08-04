@@ -6,29 +6,16 @@ use lib "$FindBin::Bin/";
 
 use VaultSingleton;
 use Data::Dumper;
+use Dancer2::DBICConfig;
 
+my $db_config = Dancer2::DBICConfig::get_db_config();
+
+config->{plugins}->{'DBIC'} = $db_config;
 set environment => 'development';
 
 get '/' => sub {
-    # my $db = schema( 'billing' );
-    my $vault_url = 'http://vault:8200';
-    my $vault_token = 'root-token';
-
-    my $vault_client = VaultSingleton->new();
-
-    $vault_client->login($vault_url, $vault_token);
-
-    my $params = {
-        backend => "kvv2",
-        mount => "kv",
-        path => "tucows-billing"
-    };
-
-    my $result = $vault_client->secrets($params);
-    my $hash_dump = Dumper($result);
     my $dbic_config = config->{plugins};
 
-    debug($hash_dump);
     debug(config);
     debug($dbic_config);
 

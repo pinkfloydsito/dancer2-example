@@ -19,3 +19,10 @@ services:
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: "root-token" 
     restart: always
+
+    networks:
+      - docker_tucows-billing-network
+
+networks:
+  docker_tucows-billing-network:
+    external: true
