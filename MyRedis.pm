@@ -50,26 +50,12 @@ sub keys {
 
 sub delete_keys_with_substring {
     my ($self, $substring) = @_;
-    print ('Testing...');
-    print($substring);
-    my $cursor = '0';
-    my @keys_to_delete;
-
-    while (1) {
-        my ($next_cursor, @matching_keys) = $self->{redis}->scan($cursor, MATCH => "*$substring*");
-
-        push @keys_to_delete, @matching_keys;
-
-        last if $next_cursor eq '0';
-
-        $cursor = $next_cursor;
-    }
+    my @keys_to_delete = $self->{redis}->keys("*$substring*");
 
     if (@keys_to_delete) {
-        return $self->{redis}->del(@keys_to_delete);
+        return $self->{redis}->del(@keys_to_delete); 
     }
-
-    return 0; # No matching keys found
+    return 0;
 }
 
 1; # End of package
