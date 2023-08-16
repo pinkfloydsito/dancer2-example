@@ -10,3 +10,4 @@ requires "WebService::HashiCorp::Vault";
 requires "JSON::MaybeXS";
 requires "HTML::Entities";
 requires "Dancer2::Plugin::DBIC";
+requires "Redis", "2.000";

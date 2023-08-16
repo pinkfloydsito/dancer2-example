@@ -23,6 +23,35 @@ services:
     networks:
       - docker_tucows-billing-network
 
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+    networks:
+      - docker_tucows-billing-network
+  
+  redis:
+    image: redis:7.0.11
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - docker_tucows-billing-network
+
+volumes:
+  db:
+    driver: local
+
 networks:
   docker_tucows-billing-network:
     external: true
